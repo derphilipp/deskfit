@@ -2,6 +2,11 @@
 
 #include <QMetaEnum>
 #include <cmath>
+#include <iostream>
+
+#include <fstream>
+#include <string>
+#include <ctime>
 
 const std::array<double, 9> SPEED_CONVERSION{ 0.0, 0.7, 1.5, 2.4, 3.3,
     4.3, 5.2, 6.1, 7.1 };
@@ -66,7 +71,10 @@ void DeskFit::deviceDiscovered(const QBluetoothDeviceInfo& info)
         m_connectionStatus = ConnectionStatus::DiscoveredStatus;
         emit connectionStatusChanged();
         connectPeripheral();
+    }else {
+	    std::cout<<info.address().toString().toStdString()<< std::endl;
     }
+
 }
 
 void DeskFit::deviceScanError(QBluetoothDeviceDiscoveryAgent::Error error)
@@ -304,6 +312,33 @@ void DeskFit::stop()
         qWarning() << "device not connected";
         return;
     }
+    // Start write progress CSV hack
+    if (!std::filesystem::exists("walking.csv")) {
+       std::ofstream outfile;
+       outfile.open("walking.csv");
+       outfile << "DateTime;Time;Steps;Distance;Calories;" << std::endl;
+       outfile.close();
+    }
+
+
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+
+    std::time(&rawtime);
+    timeinfo = localtime(&rawtime);
+
+    strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S",timeinfo);
+    std::string str(buffer);
+
+    std::ofstream outfile;
+    outfile.open("walking.csv", std::ios_base::app);
+//    outfile << "DateTime;Time;Steps;Distance;Calories" << std::endl;
+    outfile << str << ";" << m_time << ";" << m_steps << ";" << m_distance << ";" << m_calories << ";" << std::endl;
+    outfile.close();
+
+    // End write progress CSV hack
+
     m_service->writeCharacteristic(m_command, createCommand(Command::Stop));
 }
 

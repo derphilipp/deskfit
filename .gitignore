@@ -29,3 +29,5 @@ Makefile
 
 # project specific
 /dist
+
+.DS_Store
