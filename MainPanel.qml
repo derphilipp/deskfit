@@ -22,7 +22,7 @@ Item {
     visible: deskfit.connectionStatus === DeskFit.ConnectedStatus
     deskfit: DeskFit {
       id: deskfit
-      peripheralUuid: "cf:09:15:6d:7b:68"
+      peripheralUuid: "e1:59:ec:74:16:f7"
 
       Component.onCompleted: startDeviceDiscovery()
     }
