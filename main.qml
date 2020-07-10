@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.1
 
 ApplicationWindow {
   visible: true
-  width: 640
+  width: 800
   height: 480
 
   title: qsTr("DeskFit Control")
