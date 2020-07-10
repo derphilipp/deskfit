@@ -317,7 +317,7 @@ void DeskFit::stop()
     if (!std::filesystem::exists("walking.csv")) {
        std::ofstream outfile;
        outfile.open("walking.csv");
-       outfile << "DateTime;Time;Steps;Distance;Calories;" << std::endl;
+       outfile << "DateTime;Steps;Seconds;Distance;Calories;" << std::endl;
        outfile.close();
     }
 
@@ -335,7 +335,7 @@ void DeskFit::stop()
     std::ofstream outfile;
     outfile.open("walking.csv", std::ios_base::app);
 //    outfile << "DateTime;Time;Steps;Distance;Calories" << std::endl;
-    outfile << str << ";" << m_time << ";" << m_steps << ";" << m_distance << ";" << m_calories << ";" << std::endl;
+    outfile << str << ";" << m_steps << ";" << m_time/1000 << ";" << m_distance << ";" << m_calories << ";" << std::endl;
     outfile.close();
 
     // End write progress CSV hack
