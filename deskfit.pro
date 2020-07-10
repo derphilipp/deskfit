@@ -1,5 +1,8 @@
 QT += quick quickcontrols2 bluetooth
 CONFIG += c++17
+# Qt 5.11 workaround
+QMAKE_CXXFLAGS += -std=c++17
+LIBS += -lstdc++fs
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
