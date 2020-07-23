@@ -22,7 +22,12 @@ Item {
 
       return hrs + ':' + ("0" + mins).slice(-2) + ':' + ("0" + secs).slice(-2)
     }
-  }
+}
+
+  ColumnLayout {
+    id: columnLayout
+    anchors.fill: parent
+    anchors.margins: 5
 
   GridLayout {
     id: grid
@@ -84,11 +89,6 @@ Item {
       font.pixelSize: 30
     }
 }
-  ColumnLayout {
-    id: columnLayout
-    anchors.fill: parent
-    anchors.margins: 5
-
 
 
     Item {
