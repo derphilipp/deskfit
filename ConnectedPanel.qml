@@ -24,8 +24,9 @@ Item {
     }
   }
 
-  ColumnLayout {
-    id: columnLayout
+  GridLayout {
+    id: grid
+    columns: 2
     anchors.fill: parent
     anchors.margins: 5
 
@@ -37,30 +38,54 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Time: %1 Total:%2").arg(d.msToTime(deskfit.time)).arg(d.msToTime(deskfit.total_time))
+      text: qsTr("Time: %1").arg(d.msToTime(deskfit.time))
+      font.pixelSize: 30
+  }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Total:%1").arg(d.msToTime(deskfit.total_time))
       font.pixelSize: 30
   }
 
+
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Distance: %1 km Total: %2 km").arg(deskfit.distance.toFixed(2)).arg(deskfit.total_distance.toFixed(2))
+      text: qsTr("Distance: %1 km").arg(deskfit.distance.toFixed(2))
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Calories: %1 Total: %2").arg(deskfit.calories).arg(deskfit.total_calories)
+      text: qsTr("Total: %1 km").arg(deskfit.total_distance.toFixed(2))
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Steps: %1 Total: %2").arg(deskfit.steps).arg(deskfit.total_steps)
+      text: qsTr("Calories: %1").arg(deskfit.calories)
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Total: %1").arg(deskfit.total_calories)
+      font.pixelSize: 30
+    }
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Steps: %1").arg(deskfit.steps)
+      font.pixelSize: 30
+    }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Total: %1").arg(deskfit.total_steps)
+      font.pixelSize: 30
+    }
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      Layout.columnSpan:2
       text: qsTr("Speed: %1 km/h").arg(deskfit.realSpeed)
       font.pixelSize: 30
     }
@@ -225,8 +250,5 @@ Item {
   }
 }
 
-/*##^## Designer {
-    D{i:3;anchors_height:100;anchors_width:100;anchors_x:189;anchors_y:77}
-}
- ##^##*/
+
 
