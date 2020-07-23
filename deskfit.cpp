@@ -396,10 +396,10 @@ void DeskFit::stop()
 
 void DeskFit::clear()
 {
-    m_total_time=0;
-    m_total_steps=0;
-    m_total_calories=0;
-    m_total_distance=0.0;
+    m_total_time=m_time;
+    m_total_steps=m_steps;
+    m_total_calories=m_calories;
+    m_total_distance=m_distance;
 }
 
 void DeskFit::pause()
