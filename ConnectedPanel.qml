@@ -34,6 +34,7 @@ Item {
     columns: 2
     anchors.fill: parent
     anchors.margins: 5
+    Layout.alignment: Qt.AlignHCenter
 
     Label {
       Layout.alignment: Qt.AlignHCenter
