@@ -63,6 +63,11 @@ public:
     int time() const;
     double realSpeed() const;
 
+    int total_time() const;
+    int total_steps() const;
+    int total_calories() const;
+    double total_distance() const;
+
 public slots:
     void startDeviceDiscovery();
     void disconnectDevice();
@@ -120,10 +125,10 @@ private:
     int m_steps;
     double m_speed;
     int m_time;
-    double total_distance;
-    int total_calories;
-    int total_steps;
-    int total_time;
+    double m_total_distance;
+    int m_total_calories;
+    int m_total_steps;
+    int m_total_time;
 
     QByteArray createCommand(const Command command, quint8 value = 0);
     void updateDeviceStatus(const QByteArray& data);

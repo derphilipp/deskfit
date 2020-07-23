@@ -25,11 +25,11 @@ DeskFit::DeskFit(QObject* parent)
     , m_speed(0.0)
     , m_time(0)
     , m_realSpeed(0.0)
-    , total_distance(0.0)
-    , total_calories(0)
-    , total_steps(0)
+    , m_total_distance(0.0)
+    , m_total_calories(0)
+    , m_total_steps(0)
 {
-    total_time=0.7;
+    m_total_time=0.7;
     m_discoveryAgent = new QBluetoothDeviceDiscoveryAgent();
     m_discoveryAgent->setLowEnergyDiscoveryTimeout(5000);
     connect(m_discoveryAgent,
@@ -228,11 +228,16 @@ DeskFit::update() const
     return m_update;
 }
 
-double
-DeskFit::distance() const
+double DeskFit::distance() const
 {
     return m_distance;
 }
+
+double DeskFit::total_distance() const
+{
+    return m_total_distance;
+}
+
 
 int DeskFit::countdown() const
 {
@@ -244,9 +249,19 @@ int DeskFit::calories() const
     return m_calories;
 }
 
+int DeskFit::total_calories() const
+{
+    return m_total_calories;
+}
+
 int DeskFit::steps() const
 {
     return m_steps;
+}
+
+int DeskFit::total_steps() const
+{
+    return m_total_steps;
 }
 
 double
@@ -258,6 +273,11 @@ DeskFit::speed() const
 int DeskFit::time() const
 {
     return m_time;
+}
+
+int DeskFit::total_time() const
+{
+    return m_total_time;
 }
 
 double DeskFit::realSpeed() const
@@ -477,24 +497,24 @@ void DeskFit::updateDeviceStatus(const QByteArray& data)
             // If we don't have a new start, just add the time difference
             // Time passed -> Add the difference
             // If this is not the case we have a new start and/or a rollaround. Then do nothing for a Moment
-            total_time+=(msecs - m_time);
-            emit totaltimeChanged(total_time);
+            m_total_time+=(msecs - m_time);
+            emit totaltimeChanged(m_total_time);
         }
         m_time = msecs;
         emit timeChanged(msecs);
     }
     if (!qFuzzyCompare(km, m_distance)) {
         if (km > m_distance){
-            total_distance+=(km-m_distance);
-            emit totaldistanceChanged(total_distance);
+            m_total_distance+=(km-m_distance);
+            emit totaldistanceChanged(m_total_distance);
         }
         m_distance = km;
         emit distanceChanged(km);
     }
     if (calories != m_calories) {
         if (calories > m_calories) {
-            total_calories+=(calories-m_calories);
-            emit totalcaloriesChanged(total_calories);
+            m_total_calories+=(calories-m_calories);
+            emit totalcaloriesChanged(m_total_calories);
         }
         m_calories = calories;
         emit caloriesChanged(calories);
@@ -509,8 +529,8 @@ void DeskFit::updateDeviceStatus(const QByteArray& data)
     }
     if (steps != m_steps) {
         if (steps > m_steps){
-            total_steps+=(steps-m_steps);
-            emit totalstepsChanged(total_steps);
+            m_total_steps+=(steps-m_steps);
+            emit totalstepsChanged(m_total_steps);
         }
         m_steps = steps;
         emit stepsChanged(steps);
