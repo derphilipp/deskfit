@@ -37,8 +37,14 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Time: %1 Total Time: %2").arg(d.msToTime(deskfit.time), d.msToTime(deskfit.total_time))
-      font.pixelSize: 30
+      text: qsTr("Time: %1").arg(d.msToTime(deskfit.time))
+      font.pixelSize: 20
+  }
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Total Time: %1").arg(d.msToTime(deskfit.total_time))
+      font.pixelSize: 20
     }
 
     Label {
