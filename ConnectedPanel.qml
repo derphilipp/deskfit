@@ -39,93 +39,93 @@ Item {
     Layout.preferredWidth: 800
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Time")
       font.pixelSize: 30
   }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1").arg(d.msToTime(deskfit.time))
       font.pixelSize: 30
   }
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Total")
       font.pixelSize: 30
   }
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1").arg(d.msToTime(deskfit.total_time))
       font.pixelSize: 30
   }
 
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Distance")
       font.pixelSize: 30
     }
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1 km").arg(deskfit.distance.toFixed(2))
       font.pixelSize: 30
     }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Total")
       font.pixelSize: 30
   }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1 km").arg(deskfit.total_distance.toFixed(2))
       font.pixelSize: 30
     }
 
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Calories")
       font.pixelSize: 30
     }
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1").arg(deskfit.calories)
       font.pixelSize: 30
     }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Total")
       font.pixelSize: 30
     }
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1").arg(deskfit.total_calories)
       font.pixelSize: 30
     }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Steps")
       font.pixelSize: 30
     }
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1").arg(deskfit.steps)
       font.pixelSize: 30
   }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignLeft
       text: qsTr("Total")
       font.pixelSize: 30
   }
 
     Label {
-      Layout.alignment: Qt.AlignHCenter
+      Layout.alignment: Qt.AlignRight
       text: qsTr("%1").arg(deskfit.total_steps)
       font.pixelSize: 30
     }
