@@ -32,9 +32,10 @@ Item {
   GridLayout {
     id: grid
     columns: 2
+    Layout.fillWidth: true
     anchors.fill: parent
     anchors.margins: 5
-    Layout.alignment: Qt.AlignCenter
+    Layout.alignment: Qt.AlignHCenter
 
     Label {
       Layout.alignment: Qt.AlignHCenter
