@@ -34,8 +34,8 @@ Item {
     columns: 4
     Layout.fillWidth: true
     anchors.fill: parent
-    anchors.margins: 35
-    Layout.margins: 35
+    anchors.margins: 15
+    Layout.margins: 25
     Layout.alignment: Qt.AlignHCenter
     Layout.preferredWidth: 800
 
@@ -52,7 +52,7 @@ Item {
   }
     Label {
       Layout.alignment: Qt.AlignLeft
-      text: qsTr("Total")
+      text: qsTr("        Total")
       font.pixelSize: 30
   }
     Label {
@@ -61,21 +61,21 @@ Item {
       font.pixelSize: 30
   }
 
-
     Label {
       Layout.alignment: Qt.AlignLeft
       text: qsTr("Distance")
       font.pixelSize: 30
-    }
+  }
+
     Label {
       Layout.alignment: Qt.AlignRight
       text: qsTr("%1 km").arg(deskfit.distance.toFixed(2))
       font.pixelSize: 30
-    }
+  }
 
     Label {
       Layout.alignment: Qt.AlignLeft
-      text: qsTr("Total")
+      text: qsTr("        Total")
       font.pixelSize: 30
   }
 
@@ -99,7 +99,7 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignLeft
-      text: qsTr("Total")
+      text: qsTr("        Total")
       font.pixelSize: 30
     }
     Label {
@@ -121,7 +121,7 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignLeft
-      text: qsTr("Total")
+      text: qsTr("        Total")
       font.pixelSize: 30
   }
 
