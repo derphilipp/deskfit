@@ -25,9 +25,9 @@ class DeskFit : public QObject {
     Q_PROPERTY(int time READ time NOTIFY timeChanged)
 
     Q_PROPERTY(double total_distance READ total_distance NOTIFY totaldistanceChanged)
-    Q_PROPERTY(int totalcalories READ totalcalories NOTIFY totalcaloriesChanged)
-    Q_PROPERTY(int totalsteps READ totalsteps NOTIFY totalstepsChanged)
-    Q_PROPERTY(int totaltime READ totaltime NOTIFY totaltimeChanged)
+    Q_PROPERTY(int total_calories READ total_calories NOTIFY totalcaloriesChanged)
+    Q_PROPERTY(int total_steps READ total_steps NOTIFY totalstepsChanged)
+    Q_PROPERTY(int total_time READ total_time NOTIFY totaltimeChanged)
 
     Q_ENUMS(ConnectionStatus DeviceStatus)
 
