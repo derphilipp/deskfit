@@ -83,6 +83,13 @@ Item {
       text: qsTr("Speed: %1 km/h").arg(deskfit.realSpeed)
       font.pixelSize: 30
     }
+}
+  ColumnLayout {
+    id: columnLayout
+    anchors.fill: parent
+    anchors.margins: 5
+
+
 
     Item {
       width: 1
