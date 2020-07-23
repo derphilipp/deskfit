@@ -31,7 +31,7 @@ Item {
 
   GridLayout {
     id: grid
-    columns: 2
+    columns: 4
     Layout.fillWidth: true
     anchors.fill: parent
     anchors.margins: 5
@@ -40,54 +40,100 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Time: %1").arg(d.msToTime(deskfit.time))
+      text: qsTr("Time")
+      font.pixelSize: 30
+  }
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1").arg(d.msToTime(deskfit.time))
       font.pixelSize: 30
   }
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Total:%1").arg(d.msToTime(deskfit.total_time))
+      text: qsTr("Total")
+      font.pixelSize: 30
+  }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1").arg(d.msToTime(deskfit.total_time))
       font.pixelSize: 30
   }
 
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Distance: %1 km").arg(deskfit.distance.toFixed(2))
+      text: qsTr("Distance")
+      font.pixelSize: 30
+    }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1 km").arg(deskfit.distance.toFixed(2))
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Total: %1 km").arg(deskfit.total_distance.toFixed(2))
+      text: qsTr("Total")
+      font.pixelSize: 30
+  }
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1 km").arg(deskfit.total_distance.toFixed(2))
+      font.pixelSize: 30
+    }
+
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Calories")
+      font.pixelSize: 30
+    }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1").arg(deskfit.calories)
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Calories: %1").arg(deskfit.calories)
+      text: qsTr("Total")
+      font.pixelSize: 30
+    }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1").arg(deskfit.total_calories)
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Total: %1").arg(deskfit.total_calories)
+      text: qsTr("Steps")
       font.pixelSize: 30
     }
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      text: qsTr("%1").arg(deskfit.steps)
+      font.pixelSize: 30
+  }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Steps: %1").arg(deskfit.steps)
+      text: qsTr("Total")
       font.pixelSize: 30
-    }
-    Label {
-      Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Total: %1").arg(deskfit.total_steps)
-      font.pixelSize: 30
-    }
+  }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      Layout.columnSpan:2
+      text: qsTr("%1").arg(deskfit.total_steps)
+      font.pixelSize: 30
+    }
+
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
+      Layout.columnSpan:4
       text: qsTr("Speed: %1 km/h").arg(deskfit.realSpeed)
       font.pixelSize: 30
     }
