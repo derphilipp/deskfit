@@ -36,6 +36,7 @@ Item {
     anchors.fill: parent
     anchors.margins: 5
     Layout.alignment: Qt.AlignHCenter
+    Layout.preferredWidth: 800
 
     Label {
       Layout.alignment: Qt.AlignHCenter
