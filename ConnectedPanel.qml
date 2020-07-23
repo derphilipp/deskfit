@@ -37,31 +37,25 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Time: %1").arg(d.msToTime(deskfit.time))
-      font.pixelSize: 20
+      text: qsTr("Time: %1 Total:%2").arg(d.msToTime(deskfit.time)).arg(d.msToTime(deskfit.total_time))
+      font.pixelSize: 30
   }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Total Time: %1").arg(d.msToTime(deskfit.total_time))
-      font.pixelSize: 20
-    }
-
-    Label {
-      Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Distance: %1 km").arg(deskfit.distance.toFixed(2))
+      text: qsTr("Distance: %1 km Total: %2 km").arg(deskfit.distance.toFixed(2)).arg(deskfit.total_distance.toFixed(2))
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Calories: %1").arg(deskfit.calories)
+      text: qsTr("Calories: %1 Total: %2").arg(deskfit.calories).arg(deskfit.total_calories)
       font.pixelSize: 30
     }
 
     Label {
       Layout.alignment: Qt.AlignHCenter
-      text: qsTr("Steps: %1").arg(deskfit.steps)
+      text: qsTr("Steps: %1 Total: %2").arg(deskfit.steps).arg(deskfit.total_steps)
       font.pixelSize: 30
     }
 
