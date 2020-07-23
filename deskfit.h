@@ -24,6 +24,11 @@ class DeskFit : public QObject {
     Q_PROPERTY(double realSpeed READ realSpeed NOTIFY realSpeedChanged)
     Q_PROPERTY(int time READ time NOTIFY timeChanged)
 
+    Q_PROPERTY(double totaldistance READ distance NOTIFY totaldistanceChanged)
+    Q_PROPERTY(int totalcalories READ calories NOTIFY totalcaloriesChanged)
+    Q_PROPERTY(int totalsteps READ steps NOTIFY totalstepsChanged)
+    Q_PROPERTY(int totaltime READ time NOTIFY totaltimeChanged)
+
     Q_ENUMS(ConnectionStatus DeviceStatus)
 
 public:
@@ -67,6 +72,7 @@ public slots:
     void start();
     void stop();
     void pause();
+    void writeLog();
     void setSpeed(int level);
 
 signals:
@@ -81,6 +87,11 @@ signals:
     void timeChanged(int time);
     void speedChanged(double speed);
     void realSpeedChanged(double realSpeed);
+
+    void totaldistanceChanged(double totaldistance);
+    void totalcaloriesChanged(int totalcalories);
+    void totalstepsChanged(int totalsteps);
+    void totaltimeChanged(int totaltime);
 
 private:
     enum class Command {
@@ -109,6 +120,10 @@ private:
     int m_steps;
     double m_speed;
     int m_time;
+    double total_distance;
+    int total_calories;
+    int total_steps;
+    int total_time;
 
     QByteArray createCommand(const Command command, quint8 value = 0);
     void updateDeviceStatus(const QByteArray& data);

@@ -43,6 +43,12 @@ Item {
 
     Label {
       Layout.alignment: Qt.AlignHCenter
+      text: qsTr("Total Time: %1").arg(d.msToTime(deskfit.totaltime))
+      font.pixelSize: 30
+    }
+
+    Label {
+      Layout.alignment: Qt.AlignHCenter
       text: qsTr("Distance: %1 km").arg(deskfit.distance.toFixed(2))
       font.pixelSize: 30
     }

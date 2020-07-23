@@ -25,6 +25,10 @@ DeskFit::DeskFit(QObject* parent)
     , m_speed(0.0)
     , m_time(0)
     , m_realSpeed(0.0)
+    , total_distance(0.0)
+    , total_calories(0)
+    , total_steps(0)
+    , total_time(0)
 {
     m_discoveryAgent = new QBluetoothDeviceDiscoveryAgent();
     m_discoveryAgent->setLowEnergyDiscoveryTimeout(5000);
@@ -307,6 +311,33 @@ void DeskFit::start()
     m_service->writeCharacteristic(m_command, createCommand(Command::Start));
 }
 
+
+void DeskFit::writeLog(){
+    // Start write progress CSV hack
+    if (!std::filesystem::exists("log.csv")) {
+        std::ofstream outfile;
+        outfile.open("log.csv");
+        outfile << "DateTime;Steps;Seconds;Distance;Calories;" << std::endl;
+        outfile.close();
+    }
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+
+    std::time(&rawtime);
+    timeinfo = localtime(&rawtime);
+
+    strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S",timeinfo);
+    std::string str(buffer);
+
+    std::ofstream outfile;
+    outfile.open("log.csv", std::ios_base::app);
+//    outfile << "DateTime;Time;Steps;Distance;Calories" << std::endl;
+    outfile << str << ";" << m_steps << ";" << m_time/1000 << ";" << m_distance << ";" << m_calories << ";" << std::endl;
+    outfile.close();
+}
+
+
 void DeskFit::stop()
 {
     if (m_connectionStatus != ConnectionStatus::ConnectedStatus) {
@@ -315,10 +346,10 @@ void DeskFit::stop()
     }
     // Start write progress CSV hack
     if (!std::filesystem::exists("walking.csv")) {
-       std::ofstream outfile;
-       outfile.open("walking.csv");
-       outfile << "DateTime;Steps;Seconds;Distance;Calories;" << std::endl;
-       outfile.close();
+        std::ofstream outfile;
+        outfile.open("walking.csv");
+        outfile << "DateTime;Steps;Seconds;Distance;Calories;" << std::endl;
+        outfile.close();
     }
 
 
@@ -442,14 +473,29 @@ void DeskFit::updateDeviceStatus(const QByteArray& data)
     double realSpeed = (maxSpeed - minSpeed) * (speed - static_cast<double>(lower)) + minSpeed;
 
     if (msecs != m_time) {
+        if (msecs > m_time){
+            // If we don't have a new start, just add the time difference
+            // Time passed -> Add the difference
+            // If this is not the case we have a new start and/or a rollaround. Then do nothing for a Moment
+            total_time+=(msecs - m_time);
+            emit totaltimeChanged(total_time);
+        }
         m_time = msecs;
         emit timeChanged(msecs);
     }
     if (!qFuzzyCompare(km, m_distance)) {
+        if (km > m_distance){
+            total_distance+=(km-m_distance);
+            emit totaldistanceChanged(total_distance);
+        }
         m_distance = km;
         emit distanceChanged(km);
     }
     if (calories != m_calories) {
+        if (calories > m_calories) {
+            total_calories+=(calories-m_calories);
+            emit totalcaloriesChanged(total_calories);
+        }
         m_calories = calories;
         emit caloriesChanged(calories);
     }
@@ -462,6 +508,10 @@ void DeskFit::updateDeviceStatus(const QByteArray& data)
         emit countdownChanged(countdown);
     }
     if (steps != m_steps) {
+        if (steps > m_steps){
+            total_steps+=(steps-m_steps);
+            emit totalstepsChanged(total_steps);
+        }
         m_steps = steps;
         emit stepsChanged(steps);
     }
