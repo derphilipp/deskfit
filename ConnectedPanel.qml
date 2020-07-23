@@ -30,12 +30,6 @@ Item {
     anchors.fill: parent
     anchors.margins: 5
 
-    Item {
-      width: 1
-      height: 1
-      Layout.fillHeight: true
-    }
-
     Label {
       Layout.alignment: Qt.AlignHCenter
       text: qsTr("Time: %1").arg(d.msToTime(deskfit.time))
