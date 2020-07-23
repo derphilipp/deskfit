@@ -28,8 +28,8 @@ DeskFit::DeskFit(QObject* parent)
     , total_distance(0.0)
     , total_calories(0)
     , total_steps(0)
-    , total_time(0)
 {
+    total_time=0.7;
     m_discoveryAgent = new QBluetoothDeviceDiscoveryAgent();
     m_discoveryAgent->setLowEnergyDiscoveryTimeout(5000);
     connect(m_discoveryAgent,

@@ -24,7 +24,7 @@ class DeskFit : public QObject {
     Q_PROPERTY(double realSpeed READ realSpeed NOTIFY realSpeedChanged)
     Q_PROPERTY(int time READ time NOTIFY timeChanged)
 
-    Q_PROPERTY(double totaldistance READ totaldistance NOTIFY totaldistanceChanged)
+    Q_PROPERTY(double total_distance READ total_distance NOTIFY totaldistanceChanged)
     Q_PROPERTY(int totalcalories READ totalcalories NOTIFY totalcaloriesChanged)
     Q_PROPERTY(int totalsteps READ totalsteps NOTIFY totalstepsChanged)
     Q_PROPERTY(int totaltime READ totaltime NOTIFY totaltimeChanged)
@@ -88,7 +88,7 @@ signals:
     void speedChanged(double speed);
     void realSpeedChanged(double realSpeed);
 
-    void totaldistanceChanged(double totaldistance);
+    void totaldistanceChanged(double total_distance);
     void totalcaloriesChanged(int totalcalories);
     void totalstepsChanged(int totalsteps);
     void totaltimeChanged(int totaltime);
