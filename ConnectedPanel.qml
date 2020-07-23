@@ -196,6 +196,12 @@ Item {
         onClicked: deskfit.pause()
       }
 
+      Button {
+        text: qsTr("Clear")
+        Layout.preferredHeight: 100
+        onClicked: deskfit.clear()
+      }
+
       Item {
         id: element1
         width: 1

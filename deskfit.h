@@ -77,6 +77,7 @@ public slots:
     void start();
     void stop();
     void pause();
+    void clear();
     void writeLog();
     void setSpeed(int level);
 
