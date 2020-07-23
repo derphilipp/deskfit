@@ -34,8 +34,8 @@ Item {
     columns: 4
     Layout.fillWidth: true
     anchors.fill: parent
-    anchors.margins: 25
-    Layout.margins: 15
+    anchors.margins: 35
+    Layout.margins: 35
     Layout.alignment: Qt.AlignHCenter
     Layout.preferredWidth: 800
 
