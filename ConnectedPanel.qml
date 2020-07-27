@@ -266,11 +266,11 @@ Item {
         onClicked: deskfit.stop()
       }
 
-      Button {
+      /* Button {
         text: qsTr("Pause")
         Layout.preferredHeight: 100
         onClicked: deskfit.pause()
-      }
+    } */
 
       Button {
         text: qsTr("Clear")
