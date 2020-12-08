@@ -353,7 +353,7 @@ void DeskFit::writeLog(){
     std::ofstream outfile;
     outfile.open("log.csv", std::ios_base::app);
 //    outfile << "DateTime;Time;Steps;Distance;Calories" << std::endl;
-    outfile << str << ";" << m_steps << ";" << m_time/1000/60 << ";" << m_distance << ";" << m_calories << ";" << m_time/1000 << ";" << std::endl;
+    outfile << str << ";" << m_steps << ";" << (m_time/1000)/60 << ";" << m_distance << ";" << m_calories << ";" << m_time/1000 << ";" << std::endl;
     outfile.close();
 }
 
@@ -386,7 +386,7 @@ void DeskFit::stop()
     std::ofstream outfile;
     outfile.open("walking.csv", std::ios_base::app);
 //    outfile << "DateTime;Time;Steps;Distance;Calories" << std::endl;
-    outfile << str << ";" << m_steps << ";" << m_time/1000/60 << ";" << m_distance << ";" << m_calories << ";" << m_time/1000 << ";" << std::endl;
+    outfile << str << ";" << m_steps << ";" << (m_time/1000)/60 << ";" << m_distance << ";" << m_calories << ";" << m_time/1000 << ";" << std::endl;
     outfile.close();
 
     // End write progress CSV hack
