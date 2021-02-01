@@ -11,7 +11,7 @@ Item {
     id: timer
     running: true
     repeat: true
-    interval: 100
+    interval: 50000
     onTriggered: {
         root.startDiscovery()
     }
