@@ -13,7 +13,7 @@ Item {
     repeat: true
     interval: 50000
     onTriggered: {
-        root.startDiscovery()
+        // root.startDiscovery()
     }
   }
 
