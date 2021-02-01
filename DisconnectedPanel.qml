@@ -7,6 +7,17 @@ Item {
 
   id: root
 
+  Timer {
+    id: timer
+    running: true
+    repeat: true
+    interval: 100
+    onTriggered: {
+        root.startDiscovery()
+    }
+  }
+
+
   Button {
     anchors.centerIn: parent
     text: qsTr("Start Discovery")
